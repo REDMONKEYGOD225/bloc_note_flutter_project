@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:bloc_note_flutter_project/screens/ConnexionPlans.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,8 +14,9 @@ class MyApp extends StatelessWidget {
       title: 'My Bloc-Note',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.deepPurple),
+        fontFamily: 'MontserratBlack', 
       ),
-      home: const MyHomePage(),
+      home: MyHomePage(),
     );
   }
 }
@@ -25,24 +27,32 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFD4C4), // Couleur de fond #FFD4C4
+      backgroundColor: const Color(0xFFFFD4CA), 
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'bloc_note_flutter_project/assets/images/myNote_icon.png', // Chemin de l'image
-              width: 100, // Largeur de l'image
-              height: 100, // Hauteur de l'image
+              'assets/images/myNote_icon.png', 
             ),
-            const SizedBox(height: 20), // Espacement entre l'image et le texte
+            const SizedBox(height: 20), 
             Text(
               'MY BLOC-NOTE',
               style: TextStyle(
-                fontSize: 24, // Taille de la police
-                fontWeight: FontWeight.bold, // Gras
-                color: Colors.black, // Couleur du texte
+                fontSize: 24, 
+                fontWeight: FontWeight.bold, 
+                color: Colors.black, 
               ),
+            ),
+            const SizedBox(height: 20), 
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ConnecionPlans()),
+                );
+              },
+              child: Text("C'est parti"),
             ),
           ],
         ),
